@@ -89,7 +89,7 @@ body {
 
 /* Layout */
 @media (min-width: 1200px) {
-  body {
+  .grid {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 1fr 4fr 1fr;

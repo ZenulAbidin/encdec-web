@@ -212,7 +212,8 @@
             <p class="h1 my-3">What is this?</p>
             <p>
               This is a tool I created for encrypting and decrypting sensitive text easily. It does not require an account or other software.
-              Also, this tool does not use any trackers or ads, and respects your privacy.
+              Also, this tool does not use any trackers or ads, and respects your privacy. You can use this to protect sensitive data before
+              it is stored in insecure places, like the notes attached to your LastPass passwords.
             </p>
             <p class="h1 my-3">Is it safe?</p>
             <p>
@@ -221,10 +222,10 @@
             </p>
             <p class="h1 my-3">How does it work?</p>
             <p>
-              Encdec uses AES-CBC-256 with a constant IV, and a key that is derived from the SHA256 hash of the password.
-              Buffer overruns are not possible, because a salt as well as the length of the original message is also encoded
-              into the data before it is encrypted. Additionally, a salt is used in the SHA256-derived key as well to stop
-              preimage attacks.
+              Encdec uses AES-CBC-256 with a variable IV, and a key that is derived from 600,000 rounds of SHA256-PBKDF2 on the password.
+              Currently, this is the recommended hardness by OWASP. It relies on the WebCrypto API provided by the browser, so
+              it is recommended that you use a fairly recent browser. Additionally, a random salt is used in the hashing process as
+              well to stop preimage attacks.
             </p>
             </div>
             <div class="bd-example m-0 border-0 my-5">

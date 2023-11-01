@@ -94,7 +94,7 @@ async function encryptText(plainText, password) {
 
   const key = await self.crypto.subtle.importKey('raw', passwordData, { name: 'PBKDF2' }, false, ['deriveKey']);
   const derivedKey = await self.crypto.subtle.deriveKey(
-    { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+    { name: 'PBKDF2', salt, iterations: 600000, hash: 'SHA-256' },
     key,
     { name: 'AES-CBC', length: 256 },
     true,
@@ -133,7 +133,7 @@ async function decryptText(encryptedText, password) {
     try {
       const key = await self.crypto.subtle.importKey('raw', passwordData, { name: 'PBKDF2' }, false, ['deriveKey']);
       const derivedKey = await self.crypto.subtle.deriveKey(
-        { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+        { name: 'PBKDF2', salt, iterations: 600000, hash: 'SHA-256' },
         key,
         { name: 'AES-CBC', length: 256 },
         true,
